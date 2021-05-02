@@ -8,7 +8,7 @@ let header = document.querySelector(".header"),
   pig_mahdra = document.querySelector(".mahdrat .mahdra-large iframe"),
   sections = document.querySelectorAll("section"),
   links = document.querySelectorAll(".header ul li"),
-  bars=document.querySelector(".bars");
+  bars=document.querySelector(".bars"),
   albdr = [
     "https://www.youtube.com/embed/sAGUrYTLrOA",
     "https://www.youtube.com/watch?v=wi4NnUN_2yw",
@@ -17,10 +17,11 @@ let header = document.querySelector(".header"),
     "https://www.youtube.com/watch?v=z3NWKxFzBLk&list=PLNUarptHuvPWIe2MJverm9ollW2Gx85Ck",
     "https://www.youtube.com/watch?v=XsdYct9Lqtc",
     "https://www.youtube.com/watch?v=QOLnjBNXPPE",
-    "https://www.youtube.com/watch?v=qcc37lU_f7k",
-    "https://youtu.be/d7WLBnWu0ls",
+    "https://www.youtube.com/watch?v=qcc37lU_f7k"
+   
   ],
   mahdraLink = document.querySelectorAll(".mahdrat .small a"),
+  small_mahdra=document.querySelectorAll(".small-mahdra div p"),
   qConainer = document.querySelector(".quran .container .surasContainer"),
   popup = document.querySelector(".popup"),
   ayapcontainer = document.querySelector(".popup .ayapcontainer"),
@@ -28,7 +29,14 @@ let header = document.querySelector(".header"),
   ayaaudio = document.querySelector(".popup  .audio-container audio"),
   ayataray = [],
   scroll_up=document.querySelector(".scroll_up");
-
+  function changeAya(i) {
+    if (i < ayataray.length) {
+      ayaaudio.src = ayataray[i].audio.primary;
+  
+      ayaaudio.play();
+    }
+  }
+ 
 window.addEventListener("scroll", () => {
   // window.scrollY <280 ? title.style.display="block"  :title.style.display="none" ;
   if (window.scrollY > 100) {
@@ -88,7 +96,21 @@ number.onchange = function () {
 };
 pig_mahdra.src = albdr[0];
 let mLI = Math.ceil(Math.random() * albdr.length);
+let pindex=0
 mahdraLink.forEach((link) => {
+  let videoId =albdr[mLI].split("v=")[1].substring(0,11);
+  var ytApiKey = "AIzaSyBWqSch6Ch2-yyKqHN9WctUFS7YrgkCmMQ";
+  fetch( `https://www.googleapis.com/youtube/v3/videos?part=id%2Csnippet&id=${videoId}&key=${ytApiKey}`).then((response) => {
+    return response.json(); // converting byte data to json
+  })
+  .then((data) => {
+   
+   link.innerHTML=`<div class="small"><div class="small-mahdra"><p>${data.items[0].snippet.localized.title}</p></div>`;
+  });
+    //var obj = $.parseJSON(data);
+    
+ 
+  
   link.href = albdr[mLI];
   if (mLI < albdr.length - 2) {
     mLI++;
@@ -196,11 +218,7 @@ function AddInqConainer() {
       });
     });
 }
-function changeAya(i) {
-  if (i < ayataray.length) {
-    ayaaudio.src = ayataray[i].audio.primary;
 
-    ayaaudio.play();
-  }
-}
 AddInqConainer();
+
+
