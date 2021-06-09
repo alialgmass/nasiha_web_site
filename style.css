@@ -340,6 +340,7 @@ transform: scale(.89);
   cursor: pointer;
   position: sticky;
   top: 0;
+  z-index: 10;
 }
 .popup .ayapcontainer{
   width: 95%;
