@@ -1,0 +1,470 @@
+
+/*****@font-face {
+  font-family: "thuluth-decorated";
+  src: url("./fonts/thuluth-decorated.eot");
+  src: local("Ø«Ù„Ø« Ù…Ø²Ø®Ø±Ù"), local("thuluth-decorated"),
+    url("./fonts/thuluth-decorated.woff") format("woff");
+}
+@font-face {
+  font-family: "cairo-bold";
+  src: url("./fonts/cairo-bold.eot");
+  src: local("Ø§Ù„Ù‚Ø§Ù‡Ø±Ø© Ø«Ù‚ÙŠÙ„"), local("cairo-bold"),
+    url("./fonts/cairo-bold.woff") format("woff");
+} 
+    font-family:'thuluth-decorated';
+    font-family:'cairo-bold';
+*****/
+
+/** global style **/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "cairo-bold";
+  outline: none;
+}
+::-webkit-scrollbar {
+  width: 0;
+}
+body {
+  direction: rtl;
+  scroll-behavior: smooth;
+}
+ul,
+li {
+  list-style: none;
+}
+.container {
+  max-width: 1450px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  padding: 0 10px;
+}
+section {
+  padding: 70px 0 0 0;
+}
+section h3 {
+  font-size: 30px;
+  text-align: center;
+  color: #20e920c2;
+  margin-bottom: 50px;
+  position: relative;
+}
+section h3::after,
+section h3::before {
+  content: "";
+  position: absolute;
+  background-color: #20e920c2;
+  height: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+section h3::after {
+  width: 50px;
+  bottom: -10px;
+}
+section h3::before {
+  width: 100px;
+  bottom: 0px;
+}
+/*** Header  **/
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  transition: 0.5s all ease-in-out;
+}
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  color: #fff;
+  transition: 0.5s all ease-in-out;
+}
+.header.active {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.header.active .container {
+  height: 80px;
+}
+.header ul {
+  display: flex;
+}
+.header ul li {
+  position: relative;
+  cursor: pointer;
+}
+.header ul li::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  background-color: #fff;
+  height: 2px;
+  transition: 0.7s all ease-in-out;
+  width: 0;
+}
+.header li.active::after,
+.header li:hover::after {
+  width: 100%;
+}
+.header .bars {
+cursor: pointer;
+display: none;
+}
+.header li:not(:first-of-type),
+.header li:not(:last-of-type) {
+  margin: 0 15px;
+}
+.header .logo {
+  font-family: "thuluth-decorated";
+  font-size: 55px;
+  cursor: pointer;
+}
+/**-* Main Section ***/
+.main  {
+  min-height: 120vh;
+  background: url(./images/874891105_a41klklk2040b79_b.png) center center/cover
+    no-repeat;
+  padding: 0;
+  margin: 0;
+}
+.main .container {
+  min-height: 100vh;
+}
+.main .title {
+  padding: 10px;
+  border-radius: 4%;
+  background-color: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  text-align: center;
+  transition: 0.6s all ease-in-out;
+}
+.main .title h2 {
+  line-height: 1.9;
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+.title .btn {
+  margin: auto;
+  border: 2px solid#fff;
+  background: transparent;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: 400;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  position: relative;
+  transition: 0.6s all ease-in-out;
+  padding: 5px 15px;
+}
+
+.title .btn i {
+  font-size: 25px;
+  margin-right: 20px;
+}
+.title .btn::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 0;
+  height: 100%;
+  transition: 0.7s all ease-in-out;
+  background-color: #fff;
+  z-index: -1;
+}
+.title .btn:hover {
+  color: #232323;
+}
+.title .btn:hover::after {
+  width: 100%;
+}
+.title.active {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+}
+.hadeth{
+    background: rgba(2, 0, 36, 0.226);
+    background: linear-gradient(160deg, rgba(0, 0, 5, 0.137) 1%, rgba(245, 255, 254, 0.205) 40%, rgba(240, 242, 243, 0.144) 100%);
+}
+.hadeth .hadeth-container {
+  position: relative;
+  border: 1px solid #eee;
+  min-height: 450px;
+  box-shadow: 2px 2px 2px 1px #eee inset, -2px -2px 2px 0.5px #ccc inset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 10px;
+ 
+}
+.hadeth-container .number {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding:0 10px;
+  color: rgb(194, 156, 156);
+  width: 60px;
+}
+
+.hadeth .buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.hadeth .buttons .next,
+.hadeth .buttons .prev {
+  display: inline-block;
+  position: relative;
+  padding: 20px;
+  color: rgba(19, 1, 1, 0.459);
+  box-shadow: 2px 2px 2px 1px #eee , -2px -2px 2px 0.5px #eee;
+  cursor: pointer;
+ transition: .5s all ease-in-out;
+}
+.hadeth .buttons .prev:hover{
+    transform: scale(.95);
+}
+.hadeth .buttons .next:hover{
+    transform: scale(.95);
+}
+.mahdrat .mahdra-large{
+    width: 48%;
+    float: left;
+    position: sticky;
+    top: 80px;
+    
+}
+.mahdrat .mahdra-large iframe{
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px 2px #ccc;
+    width: 100%;
+    min-height:55vh ;
+}
+.mahdrat .small{
+  width: 67%;
+}
+.mahdrat .small .small-mahdra{
+    border: 1px solid #ddd;
+    width: 100%;
+    margin: 10px 0;
+    position: relative;
+    overflow: hidden;
+    padding: 20px;
+    box-shadow: 3px 3px 3px 2px #ccc;
+    min-height:10vmax;
+    cursor: pointer;
+    transition: .6s all ease-in-out;
+}
+.small-mahdra p{
+    width:70%;
+}
+
+.mahdrat .small .small-mahdra:hover{
+    transform: scale(.95);
+}
+.small-mahdra .img-1{
+    width: 20% ;
+    position: absolute;
+    left: 0;
+    top: 49%;
+    transform: translateY(-45%);
+  margin-left:2% ;
+}
+.small-mahdra img{
+    width: 100% ;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.mahdrat .small a{
+  text-decoration: none;
+  color: inherit;
+}
+.quran .container .surasContainer{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.surasContainer div{
+  border: 1px solid #eee;
+  padding: 20px;
+  min-width: 160px;
+  min-height: 100px;
+  margin: 0 10px 10px 0;
+  box-shadow: 2px 2px 2px 1px #ccc;
+  cursor: pointer;
+  transition: .8s all ease-in-out;
+  text-align: center;
+}
+.surasContainer div:hover{
+transform: scale(.89);
+}
+.popup{
+  position: fixed;
+  top:0;
+  bottom: 0;
+  width: 100%;
+  left:0;
+  z-index: 3;
+  background-color: #fff;
+  transform: translateX(100%);
+  overflow-y: scroll;
+}
+.popup.active{
+  transform: translateX(0);
+}
+.popup::-webkit-scrollbar{
+  width: 15px;
+  background-color: #fff;
+}
+.popup::-webkit-scrollbar-thumb{
+  background-color: #ccc;
+}
+.popup i{
+  display: flex;
+  font-size: 30px;
+  margin: 2px 2px 0 ;
+  cursor: pointer;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.popup .ayapcontainer{
+  width: 95%;
+  margin: 20px auto 100px  ;
+  text-align: center;
+  text-decoration: rtl;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  position: relative;
+  bottom: -50px;
+}
+.popup .ayapcontainer div{
+  border: 1px solid #eee;
+  padding: 20px;
+  width: 100%;
+}
+.popup .ayapcontainer div.active{
+background-color: #ccc;
+}
+.popup  .audio-container {
+  width: 95%;
+  margin: auto;
+  position: sticky;
+  top:10px;
+  z-index: 4;
+}
+.popup  .audio-container audio{
+  width: 100%;
+  position: relative;
+ 
+}
+.footer{
+  padding: 0;
+}
+.footer .svg svg{
+ 
+  fill: #ddd;
+  
+  transform: translateY(10px);
+}
+.socaial{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ddd;
+}
+.socaial div{
+  color: #444;
+  margin: 20px 20px 5px 0;
+  font-size: 20px;
+  transition: .5s all ease-in-out;
+}
+.socaial .fa-facebook:hover,.socaial .fa-linkedin:hover,.socaial .fa-telegram:hover{
+  color:blue;
+  transform: scale(1.2);
+}
+.socaial .fa-whatsapp:hover{
+  color: rgb(22, 202, 22);
+  transform: scale(1.2);
+}
+.scroll_up{
+box-shadow: 2px 2px 2px 1px #666;
+border-radius: 10px;
+background-color: #444;
+width: 20px;
+padding: 10px;
+position: fixed;
+bottom: -50px;
+right: 8px;
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+transition: 1s bottom ease-out;
+}
+.scroll_up.active{
+  bottom: 13px;
+}
+.scroll_up i{
+  font-size: 20px;
+color:#fff;
+}
+.scroll_up:hover{
+  transform: scale(1.1);
+color: #eee;
+background-color: #333;
+}
+@media(max-width : 1024px) {
+  .mahdrat .small{
+    width: 98%;
+  }
+  .mahdrat .mahdra-large {
+    width: 98%;
+    position: static;
+   }
+   
+.mahdrat .mahdra-large iframe{
+  min-height: 100vh;
+}
+   .main{
+    background: url(./images/1.jpg) center center/cover no-repeat;
+   }
+   .header .bars{
+     display: block;
+   }
+   .header ul{
+     padding: 20px;
+     position: fixed;
+     left: 0;
+     top: 80px;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+     align-items: center;
+     background-color: rgba(0, 0, 0, 0.6);
+     transform: translateX(-100%);
+     transition: .5s all ease-in-out;
+   }
+    
+   .header ul.active{
+    transform: translateX(0);
+   }
+   .header li:not(:first-of-type), .header li:not(:last-of-type) {
+    margin: 15px 0;
+}
+}
